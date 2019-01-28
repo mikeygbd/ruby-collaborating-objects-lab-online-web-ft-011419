@@ -7,15 +7,18 @@ attr_accessor :path
   end
 
   def files
-    # Dir.entries(/spec/fixtures/mp3s)
 
+  Dir.chdir(@path) do | path |
+          Dir.glob("*.mp3")
+      end
 
-    Dir[File.dirname(./spec/fixtures/mp3s) ].each {|file| require file }
   end
 
 
   def import
+    @file_import = self.files
+    @file_import.each do |song|
+      Song.new_by_filename(song)
 
   end
-
 end
