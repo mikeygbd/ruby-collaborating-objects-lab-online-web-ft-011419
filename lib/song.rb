@@ -15,7 +15,7 @@ attr_accessor :name, :artist
     artist.save
     artist.add_song(song)
     song.artist = artist
-    song
+    son
   end
 
 end
